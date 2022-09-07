@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Collapsible FAQ Menus</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+    <div id="temp">
+        <div class="accordion" id="accordionExample">
+            <div id="react-handle"></div>
+        </div>
+    </div>
+    <script type="text/babel">
+        function Question(props){
+            return(
+                <div class="card">
+                    <div class="card-header" id={"heading-" + props.id}>
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + props.id} aria-expanded="false" aria-controls={"collapse-" + props.id}>
+                                {props.question}
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id={"collapse-" + props.id} class="collapse" aria-labelledby={"heading-" + props.id} data-toggle={"#collapse-" + props.id}>
+                        <div class="card-body">
+                            {props.answer}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const app = (
+            <div>
+                <Question question="What color is the sky?" answer="Blue" id="0"/>
+                <Question question="How many licks to get to the center of a Tootsie Pop?" answer="Let's find out" id="1"/>
+            </div>
+        );
+
+        ReactDOM.render(app, document.querySelector('#react-handle'));
+    </script>
+</body>
