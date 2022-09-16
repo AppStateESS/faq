@@ -17,16 +17,16 @@ use faq\Resource\AbstractResource;
 class FAQResource extends AbstractResource
 {
 
-    protected $questionArray;
-    protected $answerArray;
+    protected $question;
+    protected $answer;
     
     protected $table = 'faq_qa';
 
     public function __construct()
     {
         parent::__construct();
-        $this->questionArray = new \phpws2\Variable\ArrayVar('', 'questionArray');
-        $this->answerArray = new \phpws2\Variable\ArrayVar('', 'answerArray');
+        $this->question = new \phpws2\Variable\StringVar('', 'questionArray');
+        $this->answer = new \phpws2\Variable\StringVar('', 'answerArray');
     }
     
 }
