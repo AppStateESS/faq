@@ -1,0 +1,24 @@
+<div class="carousel-item<?= $active ? ' active' : null?>">
+  <img
+      src="<?=$filepath?>"
+      data-url="<?=$url?>"
+      class="carousel-slide-image d-block w-100"
+      alt="<?=$title?>"
+      data-slide-number="<?=$id?>">
+  <?php if (!empty($caption) || (!empty($title) && $show_title)): ?>
+  <div class="carousel-caption <?=$vertical?>">
+    <div class="carousel-container <?=$horizontal?>">
+      <?php if ($show_title): ?>
+      <div class="title" style="background-color: rgba(0,0,0, <?=$opacity?>%)">
+        <h3><?=$caption_title?></h3>
+      </div>
+      <?php endif; ?>
+      <?php if (!empty($caption)):?>
+      <div class="content" style="background-color: rgba(0,0,0, <?=$opacity?>%)">
+        <?=$caption?>
+      </div>
+      <?php endif;//caption?>
+    </div>
+  </div>
+  <?php endif; // !empty(caption) ?>
+</div>
