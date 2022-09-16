@@ -6,7 +6,7 @@
  * 
  * See LICENSE file in root directory for copyright and distribution permissions.
  * 
- * @author Matthew McNaney <mcnaneym@appstate.edu>
+ * @author Joshua Baldwin <baldwinjd2@appstate.edu>
  * @license https://opensource.org/licenses/MIT
  */
 
