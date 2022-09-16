@@ -19,7 +19,7 @@
  * MA 02110-1301  USA
  */
 
-namespace carousel\Exception;
+namespace faq\Exception;
 
 class ResourceNotFound extends \Exception
 {

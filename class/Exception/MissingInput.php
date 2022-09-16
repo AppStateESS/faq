@@ -9,7 +9,7 @@
  * @author Matthew McNaney <mcnaneym@appstate.edu>
  */
 
-namespace carousel\Exception;
+namespace faq\Exception;
 
 class MissingInput extends \Exception
 {
