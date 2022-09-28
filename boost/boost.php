@@ -5,6 +5,7 @@
  */
 $proper_name = 'FAQ';
 $version = '1.0.0';
-$import_sql = false;
+$import_sql = true;
 $image_dir = true;
+$file_dir = true;
 ?>

@@ -3,11 +3,11 @@
 /**
  * @author Joshua Baldwin <baldwinjd2@appstate.edu>
  */
-$link[] = array('label' => 'FAQ',
+$link[] = array(
+    'label' => 'FAQ',
     'restricted' => TRUE,
-    'url' => 'faq/Admin/FAQ',
+    'url' => 'faq/Admin/Dashboard',
     'description' => 'FAQ Module for Frequently Asked Questions',
-    'image' => 'carousel.gif',
-    'tab' => 'content'
-);
+    'image' => 'qa.gif',
+    'tab' => 'content');
 
