@@ -1,4 +1,4 @@
-?php
+<?php
 
 declare(strict_types=1);
 /**
@@ -12,6 +12,8 @@ declare(strict_types=1);
  */
 
 namespace faq\Resource;
+
+use faq\AbstractClass\AbstractResource;
 
 class Row extends AbstractResource
 {

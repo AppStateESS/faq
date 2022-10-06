@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @license https://opensource.org/licenses/MIT
  */
 
-namespace award\Traits;
+namespace faq\Traits;
 
-use award\Exception\InaccessibleProperty;
-use award\Exception\PropertyTypeVerifyFailed;
+use faq\Exception\InaccessibleProperty;
+use faq\Exception\PropertyTypeVerifyFailed;
 
 trait MagicGetSetTrait
 {

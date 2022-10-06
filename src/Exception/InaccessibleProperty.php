@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @license https://opensource.org/licenses/MIT
  */
 
-namespace award\Exception;
+namespace faq\Exception;
 
 class InaccessibleProperty extends \Exception
 {

@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @license https://opensource.org/licenses/MIT
  */
 
-namespace award\AbstractClass;
+namespace faq\AbstractClass;
 
-use award\Traits\MagicGetSetTrait;
+use faq\Traits\MagicGetSetTrait;
 
 class AbstractConstruct
 {
