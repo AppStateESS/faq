@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * MIT License
+ * Copyright (c) 2022 Electronic Student Services @ Appalachian State University
+ *
+ * See LICENSE file in root directory for copyright and distribution permissions.
+ *
+ * @author Matthew McNaney <mcnaneym@appstate.edu>
+ * @license https://opensource.org/licenses/MIT
+ */
+
+namespace faq\View;
+
+use faq\AbstractClass\AbstractView;
+use faq\Resource\Row;
+
+class FAQView extends AbstractView
+{
+    /**
+     * Home page introduction page.
+     * @return string
+     */
+    public static function frontPage()
+    {
+        $values = [];
+        //$values['admin'] = \Current_User::allow('award');
+        return self::getTemplate('User/FrontPage', $values, true);
+    }
+}
