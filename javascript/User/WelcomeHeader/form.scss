@@ -1,0 +1,14 @@
+fieldset {
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 8px 8px 5px rgb(176, 168, 196);
+
+  legend {
+    padding: 8px;
+    background-color: white;
+    text-align: center;
+    width: 200px;
+  }
+}

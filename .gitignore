@@ -1,0 +1,7 @@
+*~
+/config/defines.php
+**/javascript/dev/
+**/javascript/build/
+**/assets.json
+**/node_modules/
+/nbproject/

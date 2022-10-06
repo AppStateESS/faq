@@ -23,12 +23,12 @@ class AbstractView
 
     protected $factory;
 
-    protected function getDirectory()
+    protected static function getDirectory()
     {
         return self::directory;
     }
 
-    protected function getHttp()
+    protected static function getHttp()
     {
         return self::http;
     }
@@ -48,11 +48,11 @@ class AbstractView
         return '<script type="text/javascript">' . implode('', $varList) . '</script>';
     }
 
-    protected function getScript($scriptName)
+    protected static function getScript($scriptName)
     {
-        $jsDirectory = $this->getHttp() . 'javascript/';
+        $jsDirectory = self::getHttp() . 'javascript/';
         if (FAQ_SYSTEM_SETTINGS['productionMode']) {
-            $path = $jsDirectory . 'build/' . $this->getAssetPath($scriptName);
+            $path = $jsDirectory . 'build/' . self::getAssetPath($scriptName);
         } else {
             $path = "{$jsDirectory}dev/$scriptName.js";
         }
@@ -60,12 +60,12 @@ class AbstractView
         return $script;
     }
 
-    protected function getAssetPath($scriptName)
+    protected static function getAssetPath($scriptName)
     {
-        if (!is_file($this->getDirectory() . 'assets.json')) {
+        if (!is_file(self::getDirectory() . 'assets.json')) {
             exit('Missing assets.json file. Run "npm run build" in the faq directory.');
         }
-        $jsonRaw = file_get_contents($this->getDirectory() . 'assets.json');
+        $jsonRaw = file_get_contents(self::getDirectory() . 'assets.json');
         $json = json_decode($jsonRaw, true);
         if (!isset($json[$scriptName]['js'])) {
             throw new \Exception('Script file not found among assets.');
@@ -73,29 +73,21 @@ class AbstractView
         return $json[$scriptName]['js'];
     }
 
-    /**
-     * 
-     * @staticvar boolean $vendor_included
-     * @param string $view_name
-     * @param boolean $add_anchor
-     * @param array $vars
-     * @return string
-     */
-    public function scriptView($view_name, $vars = null, $skip_vendor = false)
+    public static function scriptView($view_name, $vars = null)
     {
         static $vendor_included = false;
-        if (!$vendor_included && !$skip_vendor) {
-            $script[] = $this->getScript('vendor');
+        if (!$vendor_included) {
+            $script[] = self::getScript('vendor');
             $vendor_included = true;
         }
-        if (!empty($vars) && is_array($vars)) {
-            $script[] = $this->addScriptVars($vars);
+        if (!empty($vars)) {
+            $script[] = self::addScriptVars($vars);
         }
-        $script[] = $this->getScript($view_name);
+        $script[] = self::getScript($view_name);
         $react = implode("\n", $script);
         \Layout::addJSHeader($react);
         $content = <<<EOF
-<div id="$view_name"></div>
+<div id="$view_name"><p>Loading. Please wait.</p></div>
 EOF;
         return $content;
     }
