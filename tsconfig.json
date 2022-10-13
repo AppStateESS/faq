@@ -16,7 +16,8 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "outDir": "build",
-    "sourceMap": true
+    "sourceMap": true,
+    "noImplicitAny": false
   },
   "include": ["javascript/**/*.ts", "javascript/**/*.tsx"],
   "exclude": [

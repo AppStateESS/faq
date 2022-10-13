@@ -60,4 +60,9 @@ class Row extends AbstractResource
         $this->answer = $answer;
         return self;
     }
+
+    public function __construct()
+    {
+        parent::__construct('faq_qa');
+    }
 }
