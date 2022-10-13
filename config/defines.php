@@ -11,6 +11,6 @@
  */
 define('FAQ_SYSTEM_SETTINGS',
     [
-        'productionMode' => false,
-        'friendlyErrors' => false
+        'productionMode' => true,
+        'friendlyErrors' => true
     ]);

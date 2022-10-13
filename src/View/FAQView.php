@@ -26,6 +26,7 @@ class FAQView extends AbstractView
     {
         $values = [];
         //$values['admin'] = \Current_User::allow('award');
+        $values['welcomeHeader'] = self::scriptView('WelcomeHeader');
         return self::getTemplate('User/FrontPage', $values, true);
     }
 }
