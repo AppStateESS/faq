@@ -1,6 +1,7 @@
 'use strict'
 import React, {useState, useEffect} from 'react'
 import {createRoot} from 'react-dom/client';
+import axios from 'axios';
 
 const WelcomeHeader = ({ props }) => {
   return (
@@ -27,6 +28,8 @@ const App = () => {
     <div>
         <WelcomeHeader props={{question: "What color is the sky?", answer: "Red", id: "0"}}/>
         <WelcomeHeader props={{question: "Who is the lead singer of Aerosmith?", answer:"Steven Tyler", id: "1"}}/>
+        <div>
+        </div>
     </div>
   );
 };
