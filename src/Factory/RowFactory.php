@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace faq\Factory;
 
 use faq\AbstractClass\AbstractFactory;
-use faq\Resource\Award;
+use faq\Resource\Row;
 use phpws2\Database;
 use Canopy\Request;
 use faq\Exception\ResourceNotFound;
