@@ -23,7 +23,7 @@ class Row extends AbstractController
     protected function debug_to_console($data) {
         $output = $data;
 
-        echo "<script>console.log('Debug Objects: " . print_r($output) . "' );</script>";
+        echo "<script>console.log('Debug Objects: " . var_dump($output) . "' );</script>";
     }
 
     protected function listHtml()
