@@ -22,8 +22,8 @@ use faq\Exception\ResourceNotFound;
 class RowFactory extends AbstractFactory
 {
 
-    protected static string $table = 'faq_qa';
-    protected static string $resourceClassName = 'faq\Resource\Row';
+    protected static $table = 'faq_qa';
+    protected static $resourceClassName = 'faq\Resource\Row';
 
     public static function getList(array $options = [])
     {
@@ -32,6 +32,10 @@ class RowFactory extends AbstractFactory
          * @var \phpws2\Database\Table $table
          */
         extract(self::getDBWithTable());
+
+        $table->addField('id');
+        $table->addField('question');
+        $table->addField('answer');
 
         $result = $db->select();
         return $result;

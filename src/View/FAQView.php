@@ -29,4 +29,11 @@ class FAQView extends AbstractView
         $values['welcomeHeader'] = self::scriptView('WelcomeHeader');
         return self::getTemplate('User/FrontPage', $values, true);
     }
+
+    public static function view(Row $row)
+    {
+        $values = $row->getValues();
+        return self::getTemplate('User/Row', $values);
+    }
+
 }

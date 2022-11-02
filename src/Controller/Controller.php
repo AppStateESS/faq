@@ -76,20 +76,10 @@ class Controller extends \phpws2\Http\Controller
         } catch (\faq\Exception\PrivilegeMissing $e) {
             \Current_User::requireLogin();
         } catch (\faq\Exception\ResourceNotFound $error) {
-            if (AWARD_SYSTEM_SETTINGS['friendlyErrors']) {
-                \phpws2\Error::errorPage(404);
-            } else {
-                throw $error;
-            }
+            throw $error;
             exit();
         } catch (\Exception $e) {
-            if (AWARD_SYSTEM_SETTINGS['friendlyErrors']) {
-                \phpws2\Error::log($e);
-                $controller = new \faq\Controller\FriendlyErrorController($this->getModule());
-                return $controller->get($request);
-            } else {
-                throw $e;
-            }
+            throw $e;
         }
     }
 
