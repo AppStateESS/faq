@@ -34,6 +34,8 @@ const App = () => {
   );
 };
 
+axios.get('./faq/User/FAQTableController').then(res => { console.log(res.data) });
+
 const container = document.getElementById('WelcomeHeader') as HTMLElement
 const root = createRoot(container)
 root.render(<App />)

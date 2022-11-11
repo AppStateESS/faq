@@ -30,9 +30,9 @@ class FAQView extends AbstractView
         return self::getTemplate('User/FrontPage', $values, true);
     }
 
-    public static function view(Row $row)
+    public static function view(Array $rows)
     {
-        $values = $row->getValues();
+        $values = $rows[0];
         return self::getTemplate('User/Row', $values);
     }
 

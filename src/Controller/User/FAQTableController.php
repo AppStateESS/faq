@@ -18,17 +18,11 @@ use faq\AbstractClass\AbstractController;
 use faq\View\FAQView;
 use faq\Factory\RowFactory;
 
-class Row extends AbstractController
+class FAQTableController extends AbstractController
 {
-    protected function debug_to_console($data) {
-        $output = $data;
 
-        echo "<script>console.log('Debug Objects: " . var_dump($output) . "' );</script>";
-    }
-
-    protected function listHtml()
-    {
-        $this -> debug_to_console(RowFactory::getList());
+    protected function listJson(Request $request)
+    {        
         return RowFactory::getList();
     }
 
