@@ -23,18 +23,30 @@ const WelcomeHeader = ({ props }) => {
   );
 }
 
+
 const App = () => {
+  let jsonData : any; 
+  let propData : any [] = [];
+
+  getData().then((data) => { 
+    jsonData = data 
+
+    for (let i = 0; i < jsonData.length; i++) {
+      propData.push(<WelcomeHeader props={{question: jsonData[0].question, answer: jsonData[1].answer}}/>);
+    }
+  });
+
   return(
     <div>
-        <WelcomeHeader props={{question: "What color is the sky?", answer: "Red", id: "0"}}/>
-        <WelcomeHeader props={{question: "Who is the lead singer of Aerosmith?", answer:"Steven Tyler", id: "1"}}/>
-        <div>
-        </div>
+        {propData}
     </div>
   );
 };
 
-axios.get('./faq/User/FAQTableController').then(res => { console.log(res.data) });
+function getData() {
+  return axios.get('./faq/User/FAQTableController?json=true').then(res => { return res });
+}
+
 
 const container = document.getElementById('WelcomeHeader') as HTMLElement
 const root = createRoot(container)
