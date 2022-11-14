@@ -4,49 +4,57 @@ import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
 const WelcomeHeader = ({ props }) => {
-  return (
-    <div className="card">
-                    <div className="card-header" id={"heading-" + props.id}>
-                        <h2 className="mb-0">
-                            <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + props.id} aria-expanded="false" aria-controls={"collapse-" + props.id}>
-                                {props.question}
-                            </button>
-                        </h2>
-                    </div>
-                    
-                    <div id={"collapse-" + props.id} className="collapse" aria-labelledby={"heading-" + props.id} data-toggle={"#collapse-" + props.id}>
-                        <div className="card-body">
-                            {props.answer}
-                        </div>
-                    </div>
-                </div>
-  );
+
+  if (props.length > 0) {
+    console.log(props);
+    return (
+      props.map((data, index) => {
+        return (
+          <div className="card">
+            <div className="card-header" id={"heading-" + data.id}>
+              <h2 className="mb-0">
+                  <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + data.id} aria-expanded="false" aria-controls={"collapse-" + data.id}>
+                      {data.question}
+                  </button>
+              </h2>
+            </div>
+          
+            <div id={"collapse-" + data.id} className="collapse" aria-labelledby={"heading-" + data.id} data-toggle={"#collapse-" + data.id}>
+              <div className="card-body">
+                {data.answer}
+              </div>
+            </div>
+          </div>
+        )
+      })
+    );
+  } else {
+    return (<div>Still loading FAQ, please wait...</div>)
+  }
 }
 
 
 const App = () => {
-  let jsonData : any; 
-  let propData : any [] = [];
+  const [jsonData, getJsonData] = useState('');
 
-  getData().then((data) => { 
-    jsonData = data 
+  const url = './faq/User/FAQTableController?json=true';
 
-    for (let i = 0; i < jsonData.length; i++) {
-      propData.push(<WelcomeHeader props={{question: jsonData[0].question, answer: jsonData[1].answer}}/>);
-    }
-  });
+  useEffect(() => {
+    getData();
+  }, []);
 
+  const getData = () => {
+    axios.get(`${url}`).then(res => { 
+      getJsonData(res.data);
+    });
+  }
+  
   return(
     <div>
-        {propData}
+        <WelcomeHeader props={jsonData}/>
     </div>
   );
 };
-
-function getData() {
-  return axios.get('./faq/User/FAQTableController?json=true').then(res => { return res });
-}
-
 
 const container = document.getElementById('WelcomeHeader') as HTMLElement
 const root = createRoot(container)
