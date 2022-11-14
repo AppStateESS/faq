@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * MIT License
  * Copyright (c) 2020 Electronic Student Services @ Appalachian State University
  *
@@ -10,18 +10,14 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-namespace faq\Exception;
+namespace faq\Role;
 
-class ResourceNotFound extends \Exception
+class User extends Base
 {
 
-    public function __construct($id = null)
+    public function isUser()
     {
-        if ($id) {
-            parent::__construct('Resource not found: ' . $id);
-        } else {
-            parent::__construct('Resource not found');
-        }
+        return true;
     }
 
 }

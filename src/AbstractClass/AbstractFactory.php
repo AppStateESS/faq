@@ -22,8 +22,8 @@ require_once PHPWS_SOURCE_DIR . 'mod/faq/config/system.php';
 class AbstractFactory
 {
 
-    protected static string $table;
-    protected static string $resourceClassName;
+    protected static $table;
+    protected static $resourceClassName;
 
     /**
      * Returns the Resource object if id === 0 or the resource is found in the

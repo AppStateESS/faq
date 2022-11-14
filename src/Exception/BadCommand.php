@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * MIT License
  * Copyright (c) 2020 Electronic Student Services @ Appalachian State University
  *
@@ -12,15 +12,15 @@
 
 namespace faq\Exception;
 
-class ResourceNotFound extends \Exception
+class BadCommand extends \Exception
 {
 
-    public function __construct($id = null)
+    public function __construct($command = null)
     {
-        if ($id) {
-            parent::__construct('Resource not found: ' . $id);
+        if ($command) {
+            $this->message = 'Unknown command sent to controller: ' . $command;
         } else {
-            parent::__construct('Resource not found');
+            $this->message = 'Empty command sent to controller';
         }
     }
 

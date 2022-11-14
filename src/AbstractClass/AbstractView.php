@@ -73,6 +73,13 @@ class AbstractView
         return $json[$scriptName]['js'];
     }
 
+    protected static function adminMenu($active)
+    {
+        $auth = \Current_User::getAuthorization();
+        $params = ['active' => $active, 'logoutUrl' => $auth->logout_link];
+        return self::getTemplate('Admin/Menu', $params);
+    }
+
     public static function scriptView($view_name, $vars = null)
     {
         static $vendor_included = true;
@@ -108,4 +115,5 @@ EOF;
         $template->setModuleTemplate('faq', $templateFile . '.html');
         return $template->get();
     }
+
 }
