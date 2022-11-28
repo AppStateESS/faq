@@ -4,7 +4,6 @@ import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
 const WelcomeHeader = ({ props }) => {
-
   if (props.length > 0) {
     console.log(props);
     return (
@@ -51,7 +50,7 @@ const App = () => {
   
   return(
     <div>
-        <WelcomeHeader props={jsonData}/>
+      <WelcomeHeader props={jsonData}/>
     </div>
   );
 };

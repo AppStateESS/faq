@@ -25,6 +25,6 @@ class FAQTableController extends AbstractController
     {        
         return RowFactory::getList();
     }
-
+    
     
 }

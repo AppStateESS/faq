@@ -15,6 +15,7 @@ namespace faq\Controller\Admin;
 
 use faq\AbstractClass\AbstractController;
 use faq\View\DashboardView;
+use faq\Factory\RowFactory;
 
 class Dashboard extends AbstractController
 {
@@ -22,6 +23,14 @@ class Dashboard extends AbstractController
     protected function listHtml()
     {
         return DashboardView::admin();
+    }
+
+    protected function post(Request $request)
+    {
+        $faq = RowFactory::post($request);
+        $faq = RowFactory::save($faq);
+
+        return ['success' => true];
     }
 
 }

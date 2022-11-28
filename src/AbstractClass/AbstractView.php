@@ -82,7 +82,7 @@ class AbstractView
 
     public static function scriptView($view_name, $vars = null)
     {
-        static $vendor_included = true;
+        static $vendor_included = false;
         if (!$vendor_included) {
             $script[] = self::getScript('vendor');
             $vendor_included = true;

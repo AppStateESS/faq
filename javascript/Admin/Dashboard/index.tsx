@@ -4,14 +4,27 @@ import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
 const Dashboard = () => {
+  axios.post('./faq/Admin/Dashboard', {
+    question: 'Fred?',
+    answer: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
   return (
-    <div>This is the dashboard</div>
-  );
+      <h1>Hello!</h1>
+    );
 }
 
 const App = () => {
   return(
-    <Dashboard />
+    <div>
+      <Dashboard />
+    </div>
   );
 };
 

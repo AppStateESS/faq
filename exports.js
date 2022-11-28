@@ -3,6 +3,7 @@ exports.path = require('path')
 exports.APP_DIR = exports.path.resolve(__dirname, 'javascript')
 
 const adminScripts = {
+  Dashboard: exports.APP_DIR + '/Admin/Dashboard/index.tsx',
 
 }
 
@@ -11,8 +12,4 @@ const userScripts = {
   
 }
 
-const participantScripts = {
-  
-}
-
-exports.entry = {...adminScripts, ...userScripts, ...participantScripts}
+exports.entry = {...adminScripts, ...userScripts}

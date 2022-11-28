@@ -20,9 +20,10 @@ class DashboardView extends AbstractView
 
     public static function admin()
     {
-        $params['menu'] = self::adminMenu('dashboard');
+        $values['menu'] = self::adminMenu('dashboard');
+        $values['content'] = self::scriptView('Dashboard');
 
-        return self::getTemplate('Admin/Dashboard', $params, true);
+        return self::getTemplate('Admin/Dashboard', $values, true);
     }
 
 }
