@@ -3,11 +3,17 @@ import React, {useState, useEffect} from 'react'
 import {createRoot} from 'react-dom/client';
 import axios from 'axios';
 
+const headers = {'X-Requested-With': 'XMLHttpRequest'}
+
 const Dashboard = () => {
+  let question : string = 'What is 2 + 2?';
+  let answer : string = '4';
+
   axios.post('./faq/Admin/Dashboard', {
-    question: 'Fred?',
-    answer: 'Flintstone'
-  })
+    question,
+    answer
+  },
+  {headers})
   .then(function (response) {
     console.log(response);
   })

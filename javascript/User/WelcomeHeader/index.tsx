@@ -10,15 +10,15 @@ const WelcomeHeader = ({ props }) => {
       props.map((data, index) => {
         return (
           <div className="card">
-            <div className="card-header" id={"heading-" + data.id}>
+            <div className="card-header" id={"heading-" + index}>
               <h2 className="mb-0">
-                  <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + data.id} aria-expanded="false" aria-controls={"collapse-" + data.id}>
+                  <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target={"#collapse-" + index} aria-expanded="false" aria-controls={"collapse-" + index}>
                       {data.question}
                   </button>
               </h2>
             </div>
           
-            <div id={"collapse-" + data.id} className="collapse" aria-labelledby={"heading-" + data.id} data-toggle={"#collapse-" + data.id}>
+            <div id={"collapse-" + index} className="collapse" aria-labelledby={"heading-" + index} data-toggle={"#collapse-" + index}>
               <div className="card-body">
                 {data.answer}
               </div>

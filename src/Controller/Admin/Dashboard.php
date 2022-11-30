@@ -16,6 +16,7 @@ namespace faq\Controller\Admin;
 use faq\AbstractClass\AbstractController;
 use faq\View\DashboardView;
 use faq\Factory\RowFactory;
+use Canopy\Request;
 
 class Dashboard extends AbstractController
 {
@@ -30,7 +31,7 @@ class Dashboard extends AbstractController
         $faq = RowFactory::post($request);
         $faq = RowFactory::save($faq);
 
-        return ['success' => true];
+        return ['success' => true, $faq];
     }
 
 }

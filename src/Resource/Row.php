@@ -20,12 +20,12 @@ class Row extends AbstractResource
     /**
      * @var question
      */
-    private string $question;
+    private $question;
 
     /**
     * @var answer
     */
-    private string $answer;
+    private $answer;
 
     /**
      * @returns question
@@ -46,19 +46,19 @@ class Row extends AbstractResource
     /**
      * @param string $question
      */
-    public function setQuestion(string $question): self
+    public function setQuestion(string $question)
     {
         $this->question = $question;
-        return self;
+        return;
     }
 
     /**
      * @param string $answer
      */
-    public function setAnswer(string $answer): self
+    public function setAnswer(string $answer)
     {
         $this->answer = $answer;
-        return self;
+        return;
     }
 
     public function __construct()

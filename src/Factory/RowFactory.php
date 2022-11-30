@@ -33,7 +33,6 @@ class RowFactory extends AbstractFactory
          */
         extract(self::getDBWithTable());
 
-        $table->addField('id');
         $table->addField('question');
         $table->addField('answer');
 
@@ -49,8 +48,8 @@ class RowFactory extends AbstractFactory
     {
         $faq = self::build();
 
-        $faq->setQuestion($request->pullPutString('question'));
-        $faq->setAnswer($request->pullPutString('answer'));
+        $faq->setQuestion($request->pullPostString('question'));
+        $faq->setAnswer($request->pullPostString('answer'));
 
         return $faq;
     }
@@ -72,6 +71,13 @@ class RowFactory extends AbstractFactory
 
     public static function get(Request $request)
     {
+        $faq = self::build();
+
+        $string = $request->pullPostString('question');
+        
+        //$faq->setQuestion($request->pullPutString('question'));
+        //$faq->setAnswer($request->pullPutString('answer'));
+
         return "Hello";
     }
 }
